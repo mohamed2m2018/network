@@ -1,0 +1,64 @@
+body {
+    padding: 10px;
+    background-image: linear-gradient(to left top, #0064f8, #42b0ff, #00baff, #00dcff, #7ffaff);
+}
+
+.reg_header {
+    text-align: center
+}
+
+.reg_header_logo{
+    border-radius: 10px;
+    background-color: black;
+    width: 240px;
+    height: 80px;
+    font-size: 38px;
+    font-weight: 800;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    border: 2px black double;
+    margin: 0 auto;
+    cursor: pointer
+}
+.reg_header_logo a, .reg_header_logo a:active {
+    text-decoration: none !important;
+    color: darkturquoise;
+}
+
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1em;
+}
+
+.log, .reg {
+    width:40vw;
+    height:70vh;
+    margin: 0 auto;
+    padding: 20px;
+    clip-path: polygon(0 0, 100% 0, 100% 87%, 0% 100%);
+    border-radius: 20px;
+    text-align: center;
+    background-image: radial-gradient(circle, #bddeff, #91b7d2, #76b9d2, #45bacc, #214e4e)
+}
+
+.log {
+
+}
+
+.reg {
+
+}
+
+input {
+    margin-top: 20px;
+    border-radius: 10px;
+    outline: 0;
+    padding-left: 5px;
+    height: 30px;
+    transition: all .4s
+}
+input:hover {
+    box-shadow: 1px 3px 4px
+}
