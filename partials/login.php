@@ -12,4 +12,9 @@
             }
         ?>
     </form>
+    <h2>or</h2>
+    <button onclick="location.href='partials/admin_login.php'">I am an admin</button>
+    <br><br>
+    <?php echo $admin_error;?>
+
 </div>
