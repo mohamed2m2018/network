@@ -21,6 +21,7 @@ if(isset($_POST['Post']))
 }
 if(isset($_POST['comment']))
 {
+	require 'php/classes/Comment.php';
 	$post_id=$_POST['post_id'];
 	$user_id=$_SESSION['id'];
 	$newComment=new Comment($user_id,$post_id);

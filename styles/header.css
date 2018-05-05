@@ -70,3 +70,7 @@ input[type="text"] {
     width: 250px;
     padding-left: 10px
 }
+
+.delete_post_button{
+    float: right
+}

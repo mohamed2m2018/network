@@ -1,12 +1,11 @@
 <?php
     session_start();     
     include 'partials/header.php';
-    include 'partials/display_posts.php';
     include 'php/profile_handling.php';
 ?>
 <html>
 <head>
-    <title>others profile</title>
+    <title>Profile</title>
     <link rel="stylesheet" type="text/css" href="styles/profile.css">
    </head>
 <body>

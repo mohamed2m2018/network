@@ -37,6 +37,7 @@
                     <input type="password" placeholder="Password" name="reg_password"><br>
                     <input type="password" placeholder="Password (again)" name="reg_password2"><br>
                     <input type="submit" value="Submit" name="reg_submit">
+                    <br>
                     <?php
                         if(isset($reg_error)){
                             echo $reg_error;

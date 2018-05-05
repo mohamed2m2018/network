@@ -12,9 +12,21 @@
     <body>
         <?php
             include 'partials/header.php';
+            include 'php/index_handling.php';
         ?>
 
-        Welcome <?=$current_user_info['first_name']?>
+        <?php
+            if($_SESSION['email']!="admin@gmail.com"){
+                ?>
+                Welcome <?=$current_user_info['first_name']?>
+                <?php
+            }
+            else {
+                ?>
+                Welcome Admin!
+                <?php
+            }
+            ?>
 
         <!--The form where the user submits his new post-->
         <?php 
@@ -29,8 +41,6 @@
         <!--The place where the user posts appear-->
         <div class="posts_area">
             <?php
-                include 'php/index_handling.php';
-            
                 $post=new Post($current_user_info['id']);
                 $post->loadPostsFriends();
             ?>

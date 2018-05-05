@@ -1,5 +1,4 @@
 <?php
-require 'comment.php';
 class Post {
 	public $owner_id;
 	public $post_id;
@@ -106,6 +105,7 @@ class Post {
 		}
 	}
 	public function loadPostsFriends(){
+        require 'comment.php';        
 		$str = ""; //String to return
         $data=mysql_query("SELECT * FROM posts ORDER BY post_id DESC");
 		while($row = mysql_fetch_assoc($data)){
@@ -196,8 +196,7 @@ class Post {
                     </form>";
                 else
                     $form_str="<form method='POST'>
-                    <input type='text' placeholder='Add Comment' name='comment_value'>
-                    <input type='submit' value='delete' name='delete{$id}'>  
+                    <input class='delete_post_button' type='submit' value='Delete Post' name='delete{$id}'>  
                     <input type='hidden' name='post_id' value='$id'>
                     </form>";
                 $str .= "<div class='status_post'>
@@ -212,17 +211,23 @@ class Post {
                                     <br>
                                 </div>
                                 ".$form_str."
-                                <h4>Comments</h4>
+                                <h4>Comments:</h4>
                                 ".$comments."
                         </div>
-                        <hr>
+                        
                 ";
             }
         }
-        echo $str;
+        if ($str==""){
+            echo "<h3>There are no posts!</h3>";
+        }
+        else {
+            echo $str;
+        }
     }
     
     public function loadMyPosts(){
+        require 'php/classes/Comment.php';
 		$str = ""; //String to return
         $data=mysql_query("SELECT * FROM posts ORDER BY post_id DESC");
 		while($row = mysql_fetch_assoc($data)){
@@ -332,14 +337,19 @@ class Post {
                                     <br>
                                 </div>
                                 ".$form_str."
-                                <h4>Comments</h4>
+                                <h4>Comments:</h4>
                                 ".$comments."
                         </div>
-                        <hr>
+                        
                 ";
             }
         }
-        echo $str;
+        if ($str==""){
+            echo "<h3>There are no posts!</h3>";
+        }
+        else {
+            echo $str;
+        }
 	}
 }
 ?>

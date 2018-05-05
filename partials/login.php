@@ -6,6 +6,7 @@
         <input type="email" placeholder="Email" name="log_email">
         <input type="password" placeholder="Password" name="log_password">
         <input type="submit" value="Enter" name="log_submit">
+        <br><br>
         <?php
             if(isset($log_error)){
                 echo $log_error;

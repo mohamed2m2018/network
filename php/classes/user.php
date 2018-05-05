@@ -211,6 +211,32 @@ class User {
 		$query= mysql_query("INSERT INTO friend_requests VALUES('', '$user_to', '$current_user_id')");
 	}
 
+	public function removeUserPosts(){
+		require 'php/classes/post.php';		
+		$post=new Post();
+		$query = mysql_query("SELECT * FROM posts WHERE owner=$this->user_id");
+		while($row = mysql_fetch_array($query)){
+			$post->remove1($row['post_id']);
+		}
+	}
+
+	public function removeUserComments(){
+		require 'php/classes/comment.php';		
+		$comment=new Comment();
+		$query = mysql_query("SELECT * FROM comments WHERE owner=$this->user_id");
+		while($row = mysql_fetch_array($query)){
+			$comment->remove1($row['comment_id']);
+		}
+	}
+
+	public function removeUserFriendRequests(){
+		$query = mysql_query("SELECT * FROM friend_requests WHERE user_from=$this->user_id");
+		while($row = mysql_fetch_array($query)){
+			$id=$row['id'];
+			$query_remove=mysql_query("DELETE FROM friend_requests WHERE id='$id'");
+		}
+	}
+
 }
 
 

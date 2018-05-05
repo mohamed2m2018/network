@@ -22,10 +22,23 @@
 
 <div class="header">
     
-    <span class="header_logo"><a href="index.php">Change Makers</a></span>
-    <span class="header_buttons"><a href=<?=$current_user_info['profile_name']?>>My Profile</a></span>
-    <button class="friend_req_button"><a href="requests.php">Show my friend requests</a></button>
-    <button class="people_button"><a href="people.php">Check other Change Makers</a></button>
+    <?php
+    if($_SESSION['email']=="admin@gmail.com") {
+        ?>
+            <span class="header_logo"><a href="index.php">Change Makers</a></span>
+            <button class="people_button"><a href="people.php">View / Delete Users</a></button>
+            <button class="people_button"><a href="index.php">View / Delete Posts</a></button>            
+        <?php
+    } else {
+        ?>
+            <span class="header_logo"><a href="index.php">Change Makers</a></span>
+            <span class="header_buttons"><a href=<?=$current_user_info['profile_name']?>>My Profile</a></span>
+            <button class="friend_req_button"><a href="requests.php">Show my friend requests</a></button>
+            <button class="people_button"><a href="people.php">Check other Change Makers</a></button>
+        <?php
+    }
+        ?>
+    
 
     <!--form to log out-->
     <form action="index.php" method="POST">
